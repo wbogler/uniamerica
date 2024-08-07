@@ -20,23 +20,23 @@ public class CarroController {
     }
 
     @GetMapping("findbyid/{id}")
-    public VeiculosEntity findById(@PathVariable int id){
+    public VeiculosEntity findById(@PathVariable Long id){
         return veiculoService.getVeiculoById(id);
     }
 
-    @GetMapping()
-    public VeiculosEntity findByMarca(@RequestParam String marca){
-        return veiculoService.findByMarca(marca);
-    }
-
-    @PostMapping("/saveAll")
-    public void saveAllCars(@RequestBody List<VeiculosEntity> veiculos){
-        veiculoService.saveAll(veiculos);
-    }
-
-    @GetMapping("/getAll")
-    public List<VeiculosEntity> getAllVeiculos(){
-        return veiculoService.getAllVeiculos();
-    }
+//    @GetMapping()
+//    public VeiculosEntity findByMarca(@RequestParam String marca){
+//        return veiculoService.findByMarca(marca);
+//    }
+//
+//    @PostMapping("/saveAll")
+//    public void saveAllCars(@RequestBody List<VeiculosEntity> veiculos){
+//        veiculoService.saveAll(veiculos);
+//    }
+//
+//    @GetMapping("/getAll")
+//    public List<VeiculosEntity> getAllVeiculos(){
+//        return veiculoService.getAllVeiculos();
+//    }
 
 }
