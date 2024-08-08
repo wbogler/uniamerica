@@ -1,5 +1,6 @@
 package br.com.uniamerica.controle_projeto.controllers;
 
+import br.com.uniamerica.controle_projeto.entities.ProprietarioEntity;
 import br.com.uniamerica.controle_projeto.entities.VeiculosEntity;
 import br.com.uniamerica.controle_projeto.services.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,9 @@ public class CarroController {
     @Autowired
     private VeiculoService veiculoService;
 
-    @PostMapping("/{marca}/{modelo}")
-    public VeiculosEntity saveVeiculo(@PathVariable String marca, @PathVariable String modelo){
-        return veiculoService.saveVeiculos(new VeiculosEntity(null, marca,modelo));
+    @PostMapping("/saveveiculo")
+    public VeiculosEntity saveVeiculo(@RequestBody VeiculosEntity veiculosEntity){
+        return veiculoService.saveVeiculos(veiculosEntity);
     }
 
     @GetMapping("findbyid/{id}")

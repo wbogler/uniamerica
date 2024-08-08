@@ -1,7 +1,17 @@
 package br.com.uniamerica.controle_projeto.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.List;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table
 @Entity(name = "veiculos")
 public class VeiculosEntity {
@@ -9,42 +19,20 @@ public class VeiculosEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "marca")
     private String marca;
     private String modelo;
 
-    public VeiculosEntity(){
+    @ManyToOne
+    @JoinColumn(name = "proprietario_id")
+    private ProprietarioEntity proprietarioEntity;
 
-    }
+    @ManyToMany
+    @JoinTable(
+            name = "veiculo_motorista",
+            joinColumns = @JoinColumn(name = "veiculos_id"),
+            inverseJoinColumns = @JoinColumn(name = "motorista_id")
+    )
+    private List<MotoristaEntity> motoristas;
 
-    public VeiculosEntity(Long id, String marca, String modelo) {
-        this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 }
