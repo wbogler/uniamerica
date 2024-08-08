@@ -24,6 +24,11 @@ public class CarroController {
         return veiculoService.getVeiculoById(id);
     }
 
+    @GetMapping("/findAll")
+    public List<VeiculosEntity> findAll(){
+        return veiculoService.findAllVeiculos();
+    }
+
 //    @GetMapping()
 //    public VeiculosEntity findByMarca(@RequestParam String marca){
 //        return veiculoService.findByMarca(marca);

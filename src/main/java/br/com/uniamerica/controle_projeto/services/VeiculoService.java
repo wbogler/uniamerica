@@ -22,6 +22,10 @@ public class VeiculoService {
         return veiculoRepository.save(veiculosEntity);
     }
 
+    public List<VeiculosEntity> findAllVeiculos() {
+        return veiculoRepository.findAll();
+    }
+
 //    public VeiculosEntity findByMarca(String marca) {
 //        for(VeiculosEntity x : dataVeiculos){
 //            if(x.getMarca().equalsIgnoreCase(marca)){
