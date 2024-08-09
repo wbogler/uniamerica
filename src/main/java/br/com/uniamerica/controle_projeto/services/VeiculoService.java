@@ -1,5 +1,6 @@
 package br.com.uniamerica.controle_projeto.services;
 
+import br.com.uniamerica.controle_projeto.entities.MotoristaEntity;
 import br.com.uniamerica.controle_projeto.entities.VeiculosEntity;
 import br.com.uniamerica.controle_projeto.repositories.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,34 +15,17 @@ public class VeiculoService {
     @Autowired
     private VeiculoRepository veiculoRepository;
 
-    public VeiculosEntity getVeiculoById(Long id){
-        return veiculoRepository.findById(id).get();
+    public VeiculosEntity findById(Long id){
+
+        return veiculoRepository.findById(id).orElseThrow();
     }
 
-    public VeiculosEntity saveVeiculos(VeiculosEntity veiculosEntity){
+    public VeiculosEntity saveVeiculos(VeiculosEntity  veiculosEntity){
+
         return veiculoRepository.save(veiculosEntity);
     }
 
-    public List<VeiculosEntity> findAllVeiculos() {
+    public List<VeiculosEntity> findAll() {
         return veiculoRepository.findAll();
     }
-
-//    public VeiculosEntity findByMarca(String marca) {
-//        for(VeiculosEntity x : dataVeiculos){
-//            if(x.getMarca().equalsIgnoreCase(marca)){
-//                return x;
-//            }
-//        }
-//        return new VeiculosEntity();
-//    }
-//
-//    public void saveAll(List<VeiculosEntity> veiculos) {
-//        for(VeiculosEntity x : veiculos){
-//            saveVeiculos(x);
-//        }
-//    }
-//
-//    public List<VeiculosEntity> getAllVeiculos(){
-//        return dataVeiculos;
-//    }
 }

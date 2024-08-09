@@ -1,6 +1,5 @@
 package br.com.uniamerica.controle_projeto.controllers;
 
-import br.com.uniamerica.controle_projeto.entities.ProprietarioEntity;
 import br.com.uniamerica.controle_projeto.entities.VeiculosEntity;
 import br.com.uniamerica.controle_projeto.services.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/carros")
-public class CarroController {
+public class VeiculoController {
 
     @Autowired
     private VeiculoService veiculoService;
@@ -22,12 +21,12 @@ public class CarroController {
 
     @GetMapping("findbyid/{id}")
     public VeiculosEntity findById(@PathVariable Long id){
-        return veiculoService.getVeiculoById(id);
+        return veiculoService.findById(id);
     }
 
     @GetMapping("/findAll")
     public List<VeiculosEntity> findAll(){
-        return veiculoService.findAllVeiculos();
+        return veiculoService.findAll();
     }
 
 //    @GetMapping()
