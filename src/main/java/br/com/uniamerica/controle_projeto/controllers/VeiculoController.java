@@ -9,24 +9,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/carros")
-public class CarroController {
+public class VeiculoController {
 
     @Autowired
     private VeiculoService veiculoService;
 
-    @PostMapping("/{marca}/{modelo}")
-    public VeiculosEntity saveVeiculo(@PathVariable String marca, @PathVariable String modelo){
-        return veiculoService.saveVeiculos(new VeiculosEntity(null, marca,modelo));
+    @PostMapping("/saveveiculo")
+    public VeiculosEntity saveVeiculo(@RequestBody VeiculosEntity veiculosEntity){
+        return veiculoService.saveVeiculos(veiculosEntity);
     }
 
     @GetMapping("findbyid/{id}")
     public VeiculosEntity findById(@PathVariable Long id){
-        return veiculoService.getVeiculoById(id);
+        return veiculoService.findById(id);
     }
 
     @GetMapping("/findAll")
     public List<VeiculosEntity> findAll(){
-        return veiculoService.findAllVeiculos();
+        return veiculoService.findAll();
     }
 
 //    @GetMapping()
