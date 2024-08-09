@@ -1,8 +1,16 @@
 package br.com.uniamerica.controle_projeto.entities;
 
+import jakarta.persistence.*;
+
+@Table
+@Entity(name = "veiculos")
 public class VeiculosEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "marca")
     private String marca;
     private String modelo;
 
