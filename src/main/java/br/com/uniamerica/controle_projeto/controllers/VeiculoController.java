@@ -29,6 +29,16 @@ public class VeiculoController {
         return veiculoService.findAll();
     }
 
+    @GetMapping("/marca/{marca}")
+    public List<VeiculosEntity> findByMarca(@PathVariable String marca){
+        return veiculoService.findByMarca(marca);
+    }
+
+    @GetMapping("/count/{marca}")
+    public int countMarca(@PathVariable String marca){
+        return veiculoService.countMarca(marca);
+    }
+
 //    @GetMapping()
 //    public VeiculosEntity findByMarca(@RequestParam String marca){
 //        return veiculoService.findByMarca(marca);

@@ -28,4 +28,12 @@ public class VeiculoService {
     public List<VeiculosEntity> findAll() {
         return veiculoRepository.findAll();
     }
+
+    public List<VeiculosEntity> findByMarca(String marca){
+        return veiculoRepository.findByMarca(marca);
+    }
+
+    public int countMarca(String marca){
+        return veiculoRepository.totalMarcas(marca);
+    }
 }
