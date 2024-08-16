@@ -16,8 +16,12 @@ public class VeiculoService {
     private VeiculoRepository veiculoRepository;
 
     public VeiculosEntity findById(Long id){
-
-        return veiculoRepository.findById(id).orElseThrow();
+        try{
+            return veiculoRepository.findById(id).orElseThrow();
+        }catch (Exception e){
+            System.out.println(e.getCause());
+            return new VeiculosEntity();
+        }
     }
 
     public VeiculosEntity saveVeiculos(VeiculosEntity  veiculosEntity){

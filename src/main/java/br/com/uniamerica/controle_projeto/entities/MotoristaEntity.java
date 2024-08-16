@@ -1,6 +1,8 @@
 package br.com.uniamerica.controle_projeto.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,11 @@ public class MotoristaEntity {
     private String nome;
     private String cnh;
 
+    @Column(nullable = true)
+    @Pattern(regexp = "^[^@]+@[^@]+\\.[^@]+$")
+    private String email;
+
     @ManyToMany(mappedBy = "motoristas")
+    @JsonIgnoreProperties("motoristas")
     private List<VeiculosEntity> veiculos;
 }
