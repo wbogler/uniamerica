@@ -1,10 +1,11 @@
 package br.com.uniamerica.controle_projeto.controllers;
 
 import br.com.uniamerica.controle_projeto.entities.MotoristaEntity;
-import br.com.uniamerica.controle_projeto.entities.VeiculosEntity;
 import br.com.uniamerica.controle_projeto.services.MotoristaService;
-import br.com.uniamerica.controle_projeto.services.VeiculoService;
+import com.sun.net.httpserver.HttpsServer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,13 +23,23 @@ public class MotoristaController {
     }
 
     @GetMapping("findbyid/{id}")
-    public MotoristaEntity findById(@PathVariable Long id){
-        return motoristaService.findById(id);
+    public ResponseEntity<MotoristaEntity> findById(@PathVariable Long id){
+
+        try {
+            return ResponseEntity.ok(motoristaService.findById(id));
+        }catch (Exception e){
+            System.err.println(e.getCause());
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/findAll")
-    public List<MotoristaEntity> findAll(){
-        return motoristaService.findAll();
+    public ResponseEntity<List<MotoristaEntity>> findAll(){
+        try{
+            return ResponseEntity.ok(motoristaService.findAll());
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 }
