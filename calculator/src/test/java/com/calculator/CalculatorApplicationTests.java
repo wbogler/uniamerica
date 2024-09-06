@@ -1,10 +1,10 @@
-package br.com.uniamerica.controle_projeto;
+package com.calculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ControleProjetoApplicationTests {
+class CalculatorApplicationTests {
 
 	@Test
 	void contextLoads() {

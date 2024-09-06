@@ -1,15 +1,14 @@
-package br.com.uniamerica.controle_projeto;
+package com.calculator;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ControleProjetoApplication {
+public class CalculatorApplication {
 
 	public static void main(String[] args) {
-
-		SpringApplication.run(ControleProjetoApplication.class, args);
-
+		SpringApplication.run(CalculatorApplication.class, args);
 	}
 
 }
