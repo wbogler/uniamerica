@@ -28,6 +28,7 @@ public class LoginView {
         JButton botaoLogin = new JButton("Entrar");
         botaoLogin.setBounds(90, 150, 100, 30);
 
+
         frame.add(usuarioTexto);
         frame.add(usuario);
         frame.add(senhaTexto);
